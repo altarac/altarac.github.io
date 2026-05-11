@@ -1,754 +1,223 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<scr
-ipt src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<meta charset="utf-8">
-<title></title>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<style media="screen">
-body{
-      margin-top:20px;
-      background:#eee;
-    }
-
-    .timeline-centered {
-    position: relative;
-    margin-bottom: 30px;
-    }
-    .timeline-centered.timeline-sm .timeline-entry {
-    margin-bottom: 20px !important;
-    }
-    .timeline-centered.timeline-sm .timeline-entry .timeline-entry-inner .timeline-label {
-    padding: 1em;
-    }
-    .timeline-centered:before,
-    .timeline-centered:after {
-    content: " ";
-    display: table;
-    }
-    .timeline-centered:after {
-    clear: both;
-    }
-    .timeline-centered:before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 7px;
-    background: #ffffff;
-    left: 50%;
-    top: 20px;
-    bottom: 20px;
-    margin-left: -4px;
-    }
-    .timeline-centered .timeline-entry {
-    position: relative;
-    width: 50%;
-    float: right;
-    margin-bottom: 70px;
-    clear: both;
-    }
-    .timeline-centered .timeline-entry:before,
-    .timeline-centered .timeline-entry:after {
-    content: " ";
-    display: table;
-    }
-    .timeline-centered .timeline-entry:after {
-    clear: both;
-    }
-    .timeline-centered .timeline-entry.begin {
-    margin-bottom: 0;
-    }
-    .timeline-centered .timeline-entry.left-aligned {
-    float: left;
-    }
-    .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner {
-    margin-left: 0;
-    margin-right: -28px;
-    }
-    .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-time {
-    left: auto;
-    right: -215px;
-    text-align: left;
-    }
-    .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-icon {
-    float: right;
-    }
-    .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label {
-    margin-left: 0;
-    margin-right: 85px;
-    }
-    .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label:after {
-    left: auto;
-    right: 0;
-    margin-left: 0;
-    margin-right: -9px;
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner {
-    position: relative;
-    margin-left: -31px;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner:before,
-    .timeline-centered .timeline-entry .timeline-entry-inner:after {
-    content: " ";
-    display: table;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner:after {
-    clear: both;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time {
-    position: absolute;
-    left: -215px;
-    text-align: right;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span {
-    display: block;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:first-child {
-    font-size: 18px;
-    font-weight: bold;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:last-child {
-    font-size: 12px;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon {
-    background: #fff;
-    color: #999999;
-    display: block;
-    width: 60px;
-    height: 60px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-    border-radius: 50%;
-    text-align: center;
-    border: 7px solid #ffffff;
-    line-height: 45px;
-    font-size: 15px;
-    float: left;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-primary {
-    background-color: #dc6767;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-success {
-    background-color: #5cb85c;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-info {
-    background-color: #5bc0de;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-warning {
-    background-color: #f0ad4e;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-danger {
-    background-color: #d9534f;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-red {
-    background-color: #bf4346;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-green {
-    background-color: #488c6c;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-blue {
-    background-color: #0a819c;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-yellow {
-    background-color: #f2994b;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-orange {
-    background-color: #e9662c;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-pink {
-    background-color: #bf3773;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-violet {
-    background-color: #9351ad;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-grey {
-    background-color: #4b5d67;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-dark {
-    background-color: #594857;
-    color: #fff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
-    position: relative;
-    background: #ffffff;
-    padding: 1.7em;
-    margin-left: 85px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding;
-    background-clip: padding-box;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red {
-    background: #bf4346;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red:after {
-    border-color: transparent #bf4346 transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green {
-    background: #488c6c;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green:after {
-    border-color: transparent #488c6c transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange {
-    background: #e9662c;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange:after {
-    border-color: transparent #e9662c transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow {
-    background: #f2994b;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow:after {
-    border-color: transparent #f2994b transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue {
-    background: #0a819c;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue:after {
-    border-color: transparent #0a819c transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink {
-    background: #bf3773;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink:after {
-    border-color: transparent #bf3773 transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet {
-    background: #9351ad;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet:after {
-    border-color: transparent #9351ad transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey {
-    background: #4b5d67;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey:after {
-    border-color: transparent #4b5d67 transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark {
-    background: #594857;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark:after {
-    border-color: transparent #594857 transparent transparent;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark p {
-    color: #ffffff;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 9px 9px 9px 0;
-    border-color: transparent #ffffff transparent transparent;
-    left: 0;
-    top: 20px;
-    margin-left: -9px;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title,
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p {
-    color: #999999;
-    margin: 0;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p + p {
-    margin-top: 15px;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title {
-    margin-bottom: 10px;
-    font-family: 'Oswald';
-    font-weight: bold;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title span {
-    -webkit-opacity: .6;
-    -moz-opacity: .6;
-    opacity: .6;
-    -ms-filter: alpha(opacity=60);
-    filter: alpha(opacity=60);
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img {
-    margin: 5px 10px 0 0;
-    }
-    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img.pull-right {
-    margin: 5px 0 0 10px;
-    }
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniLabs | Interactive Science Simulations</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        background: '#f8fafc',
+                        card: '#ffffff'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .modal-animate { transition: all 0.3s ease-out; }
+        
+        .skeleton {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
     </style>
-
-    <script type="text/javascript" src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
-
-  </head>
-  <body>
-
-    <div class="col-md-8 offset-2">
-      <br>
-        <a onclick="printJS({printable: 'save_me', type: 'html', css:['https://drive.google.com/uc?export=view&id=1lGZUcy6hNOSBOa69GVbYeiYl2TR6el0K' ,'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', 'https://drive.google.com/uc?export=view&id=1mfK6Fb0A69d47n5sq9kVP4uZujl1DB-F'], documentTitle: 'Timeline'}); save_title();" class="btn btn-dark btn-block" href="#"><span>Save as PDF</span></a>
-      <br>
-    </div>
-
-    <div id="save_me" class="container bootstrap snippets bootdeys">
-
-
-      <div class="text-center col-md-8 offset-2">
-        <h1>Transition Grade 6 to Cycle 1</h1>
-        <h3>Students With Special Needs 2020-2021</h2>
-        <br>
-        <hr>
-      </div>
-
-
-        <div class="col-md-9">
-            <div class="timeline-centered timeline-sm">
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="October 1, 2020" class="timeline-time"><span class='text-dark'>October 1, 2020</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Review the timeline and deadlines</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="October 1, 2020" class="timeline-time"><span class='text-dark'>October 1, 2020</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Review the online survey for teachers</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="December 11, 2020" class="timeline-time"><span class='text-dark'>December 11, 2020</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Invitation to complete the online survey for students with special needs who might be recommended for a specialized setting (Low-ratio, diversified path or CASP).">Assistant director sends email to Elementary Schools principals</span>
-                            <ul>
-                                <li ><a href=https://teams.microsoft.com/_#/school/files/Timeline%20Transitions%20G6-C1%20Spec%20ED?threadId=19%3Abb4b15f8201644efa77edcbc45c8ef47%40thread.tacv2&ctx=channel&context=December%25202020&rootfolder=%252Fsites%252FStorage%252FShared%2520Documents%252FTimeline%2520Transitions%2520G6-C1%2520Spec%2520ED%252FDecember%25202020> Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="December 11, 2020" class="timeline-time"><span class='text-dark'>December 11, 2020</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Elementary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="The survey should be completed by a team of teachers, remedial teachers, in-school professionals and administrators">ES share the online survey with their G6 school team</span>
-                            <ul>
-                                <li ><a href=https://teams.microsoft.com/_#/school/files/Timeline%20Transitions%20G6-C1%20Spec%20ED?threadId=19%3Abb4b15f8201644efa77edcbc45c8ef47%40thread.tacv2&ctx=channel&context=December%25202020&rootfolder=%252Fsites%252FStorage%252FShared%2520Documents%252FTimeline%2520Transitions%2520G6-C1%2520Spec%2520ED%252FDecember%25202020> Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="January 15, 2021" class="timeline-time"><span class='text-dark'>January 15, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Insert--description of the meeting">Consultants contact HS to organize August meeting</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="January 22, 2021" class="timeline-time"><span class='text-dark'>January 22, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Elementary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="(Add missing reports from confidential file)">Online student profiles completed</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="January 22, 2021" class="timeline-time"><span class='text-dark'>January 22, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Insuring that all the required reports and information needed to assess the students profiles are available at the board. ">Internal verification of files begins</span>
-                            <ul>
-                                <li ><a href=Checklist to be created + monitoring list of students to be added> Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="January 26, 2021" class="timeline-time"><span class='text-dark'>January 26, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Include checklist">PSD team meeting 1: To review student files</span>
-                            <ul>
-                                <li ><a href=to be created--monitoring list + result> Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="January 27, 2021" class="timeline-time"><span class='text-dark'>January 27, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Continuation + Finalize eicsions">PSD team meeting 2: To review student files</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="February 2, 2021" class="timeline-time"><span class='text-dark'>February 2, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Continuation">PSD team meeting backup</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="February 12, 2021" class="timeline-time"><span class='text-dark'>February 12, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Final PSD placement decisions are sent to ES</span>
-                            <ul>
-                                <li ><a href=list of students and placement> Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="February 28, 2021" class="timeline-time"><span class='text-dark'>February 28, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Final PSD placement decisions are sent to SOTS +HR</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="March 1, 2021" class="timeline-time"><span class='text-dark'>March 1, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Elementary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">School principals inform parents of decision</span>
-                            <ul>
-                                <li ><a href=parental consent form or signature for placement> Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="March 26, 2021" class="timeline-time"><span class='text-dark'>March 26, 2021</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Elementary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">School principals send list of parental consent to PSD</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="April 6, 2021" class="timeline-time"><span class='text-dark'>April 6, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Send student profiles to Secondary Schools</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="May 14, 2021" class="timeline-time"><span class='text-dark'>May 14, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Secondary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Observations visits by secondary school teams</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="May 28, 2021" class="timeline-time"><span class='text-dark'>May 28, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Secondary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">On a need basis: Contact PSD for additional support with groupings and placement</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="June 25, 2021" class="timeline-time"><span class='text-dark'>June 25, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Secondary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Administrators lead transition activity</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="June 25, 2020" class="timeline-time"><span class='text-dark'>June 25, 2020</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Secondary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Administrators schedule intake meetings</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="June 25, 2020" class="timeline-time"><span class='text-dark'>June 25, 2020</span><span class='text-dark'>Deadline</span></time>
-                            <div class="timeline-icon bg-danger"><i style="margin-top:15px" class="fa fa-exclamation"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="text-info" data-toggle="tooltip" data-placement="top" title="Files will be returned by the last week of June to ES">Request confidential and behavior files form ES</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry left-aligned">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="August 20, 20201" class="timeline-time"><span class='text-dark'>August 20, 20201</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">PSD</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">DP, LR, CASP conultants meet with the respective teachers and attendants</span>
-                            <ul>
-                                <li ><a href=list of students with description > Documents </a></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-                    <article class="timeline-entry right">
-                        <div class="timeline-entry-inner text-white">
-                            <time datetime="September 15, 2021" class="timeline-time"><span class='text-dark'>September 15, 2021</span><span class='text-dark'>Date</span></time>
-                             <div class="timeline-icon bg-warning"><i style="margin-top:15px" class="fa fa-paper-plane"></i></div>
-                            <div class="timeline-label bg-dark"><h4 class="timeline-title">Secondary Schools</h4>
-
-                            <p class='text-white'>
-                            <span class="" data-toggle="tooltip" data-placement="top" title="">Administrators and assistant directors: Review of placement--trouble shooting</span>
-                            <ul>
-                                <li hidden></li>
-                                <li hidden></li>
-                            </ul>
-                            </p></div>
-
-                        </div>
-                    </article>
-
-</div>
+</head>
+<body class="bg-background text-slate-700 min-h-screen font-sans flex flex-col relative">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="bg-primary p-1.5 rounded-lg shadow-sm">
+                        <i data-lucide="atom" class="text-white h-6 w-6"></i>
                     </div>
+                    <span class="font-bold text-xl text-slate-900 tracking-tight">OmniLabs</span>
                 </div>
-              </body>
-              <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+            </div>
+        </div>
+    </nav>
 
-            <script type="text/javascript">
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        
+        <!-- Search Bar -->
+        <div class="relative max-w-xl mx-auto mb-10 text-slate-500 focus-within:text-slate-900">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="search" class="h-5 w-5"></i>
+            </div>
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="block w-full pl-11 pr-4 py-3.5 bg-white border border-slate-300 rounded-2xl leading-5 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition shadow-sm" 
+                placeholder="Search simulations..."
+            >
+        </div>
 
-            $(function () {
-               $('[data-toggle="tooltip"]').tooltip()
-             })
+        <!-- Grid -->
+        <div id="simulationsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="skeleton h-48 rounded-2xl"></div>
+            <div class="skeleton h-48 rounded-2xl"></div>
+            <div class="skeleton h-48 rounded-2xl"></div>
+        </div>
 
-            </script>
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-20">
+            <i data-lucide="search-x" class="h-16 w-16 text-slate-300 mx-auto mb-4"></i>
+            <h3 class="text-xl font-medium text-slate-800">No matches found</h3>
+            <p class="text-slate-500 mt-2">Try a different keyword.</p>
+        </div>
 
-            </html>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+            <p>&copy; <span id="year"></span> OmniLabs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Logic -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. FALLBACK DATA
+        const initialFiles = [
+            "Acid-Base Identification Labs.html", "Balancing Chemical Equations.html", "Blood Compatibility.html",
+            "Blood Typing Lab.html", "Bohn-Rutherford Builder.html", "Burning Iron Wool.html", "Cell Division.html",
+            "Chemical Reaction Indicators.html", "Concentrations.html", "Convection Currents.html", "Dalton's Model.html",
+            "Density Column.html", "Density Lab.html", "Dichotomous Key.html", "Diffusion in the Lungs.html",
+            "Dilution.html", "EM Spectrum.html", "Evolution.html", "Fluids.html", "Forces (Tug of War).html",
+            "Gravity (Force Arrows).html", "Gravity.html", "Growing Plants Lab.html", "Isometric projections.html",
+            "Lenses.html", "Macronutrient Lab.html", "Magnetism.html", "Mass of Air.html", "Mass vs Weight.html",
+            "Nervous System.html", "Nutrition Labels.html", "Ohm's Law Lab.html", "Orogenesis.html",
+            "Phases of the Moon.html", "Photosynthesis.html", "Pressure.html", "Reflection.html", "Seasons.html",
+            "Separation Techniques Lab.html", "Solubility.html", "States of Matter.html", "Technical Drawings.html",
+            "Thermal Expansion.html", "Tropisms.html", "Watersheds.html", "Waves.html"
+        ];
+        
+        let allSimulations = initialFiles.map((name, index) => ({
+            id: index,
+            title: name.replace('.html', ''),
+            link: name
+        }));
+
+        // 2. METADATA HELPERS
+        const getIcon = (t) => {
+            t = t.toLowerCase();
+            if (t.includes('blood') || t.includes('heart')) return 'heart';
+            if (t.includes('cell') || t.includes('evolution') || t.includes('dna')) return 'dna';
+            if (t.includes('plant') || t.includes('photosynthesis')) return 'leaf';
+            if (t.includes('acid') || t.includes('chem') || t.includes('solution')) return 'flask-conical';
+            if (t.includes('atom') || t.includes('matter')) return 'atom';
+            if (t.includes('force') || t.includes('gravity') || t.includes('pressure')) return 'scale';
+            if (t.includes('wave') || t.includes('spectrum')) return 'activity';
+            if (t.includes('water') || t.includes('fluid') || t.includes('solubility')) return 'droplet';
+            return 'microscope';
+        };
+
+        const getTags = (t) => {
+            t = t.toLowerCase();
+            const tags = [];
+            if (t.includes('chem') || t.includes('acid') || t.includes('matter')) tags.push('Chemistry');
+            if (t.includes('force') || t.includes('gravity') || t.includes('wave')) tags.push('Physics');
+            if (t.includes('blood') || t.includes('cell') || t.includes('plant')) tags.push('Biology');
+            if (tags.length === 0) tags.push('Simulation');
+            return tags;
+        };
+
+        // 3. CORE RENDERING
+        const render = (data) => {
+            const grid = document.getElementById('simulationsGrid');
+            const empty = document.getElementById('emptyState');
+            grid.innerHTML = '';
+            
+            if (data.length === 0) {
+                grid.classList.add('hidden');
+                empty.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            empty.classList.add('hidden');
+
+            data.forEach((sim) => {
+                const card = document.createElement('a');
+                card.href = sim.link;
+                
+                card.className = `block bg-white border border-slate-200 rounded-2xl p-6 group relative overflow-hidden transition-all shadow-sm card-hover cursor-pointer hover:shadow-md`;
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-3 bg-blue-50 text-primary rounded-xl border border-slate-100">
+                            <i data-lucide="${getIcon(sim.title)}" class="h-6 w-6"></i>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="h-5 w-5 text-slate-300 group-hover:text-primary transition-colors"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-primary transition-colors">${sim.title}</h2>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        ${getTags(sim.title).map(tag => `<span class="text-[10px] uppercase tracking-wider font-bold text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-100">${tag}</span>`).join('')}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        };
+
+        const filterSims = () => {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allSimulations.filter(s => s.title.toLowerCase().includes(query));
+            render(filtered);
+        };
+
+        document.getElementById('searchInput').oninput = filterSims;
+
+        // 4. GITHUB DATA FETCH
+        const fetchSims = async () => {
+            try {
+                const res = await fetch(`https://api.github.com/repos/altarac/sims/contents/`);
+                if (!res.ok) throw new Error();
+                const items = await res.json();
+                allSimulations = items
+                    .filter(i => i.name.endsWith('.html') && i.name !== 'index.html')
+                    .map((i, index) => ({
+                        id: index,
+                        title: i.name.replace('.html', ''),
+                        link: i.name
+                    }));
+                filterSims();
+            } catch (e) { 
+                filterSims(); 
+            }
+        };
+
+        fetchSims();
+        lucide.createIcons();
+    </script>
+</body>
+</html>
